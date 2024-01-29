@@ -8,18 +8,18 @@ const InfiniteMemeGallery = () => {
   const [memes, setMemes] = useState([]);
   const [after, setAfter] = useState(null);
 
-  useEffect(() => {
-    const fetchMemes = async () => {
-      try {
-        const response = await axios.get(`https://www.reddit.com/r/memes.json?limit=24${after ? `&after=${after}` : ''}`);
-        const newMemes = response.data.data.children;
-        setMemes((prevMemes) => [...prevMemes, ...newMemes]);
-        setAfter(response.data.data.after);
-      } catch (error) {
-        console.error('Error fetching memes:', error);
-      }
-    };
+  const fetchMemes = async () => {
+    try {
+      const response = await axios.get(`https://www.reddit.com/r/memes.json?limit=24${after ? `&after=${after}` : ''}`);
+      const newMemes = response.data.data.children;
+      setMemes((prevMemes) => [...prevMemes, ...newMemes]);
+      setAfter(response.data.data.after);
+    } catch (error) {
+      console.error('Error fetching memes:', error);
+    }
+  };
 
+  useEffect(() => {
     fetchMemes();
   }, [after]);
 
