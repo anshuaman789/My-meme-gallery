@@ -1,0 +1,34 @@
+/* MemeGallery.module.css */
+.galleryContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .memeImageWrapper {
+    margin: 10px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .memeImageWrapper:hover {
+    transform: scale(1.05);
+  }
+  
+  .memeImage {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .galleryTitle {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
